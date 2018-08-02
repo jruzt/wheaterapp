@@ -5,6 +5,7 @@ import WeatherExtraInfo from './WeatherExtraInfo';
 import './styles.css';
 
 const WeatherData = ({ data }) => {
+  // this is destructuring, is the same that: const temperature, weatherState, humidity, wind = data.temperature, data.weatherState, data.humidity, data.wind. It is verbose.
   const { temperature, weatherState, humidity, wind } = data;
   return (
     <div className="weatherDataCont">

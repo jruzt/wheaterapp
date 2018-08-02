@@ -6,7 +6,6 @@ import WeatherData from './WeatherData/index';
 import transformWeather from './../../services/transformWeather';
 import './styles.css';
 
-
 const api_key = 'ee309811fe2212fc530c211c54ec90cb';
 
 
@@ -32,9 +31,10 @@ class WeatherLocation extends Component {
   }
 
   render = () => {
+    const { onWeatherLocationClick } = this.props;
     const { city, data } = this.state;
     return(
-      <div className="weatherLocationCont">
+      <div className="weatherLocationCont" onClick={onWeatherLocationClick}>
         <Location city={city}/>
         {
           data ? <WeatherData data={data}/> :
@@ -46,7 +46,8 @@ class WeatherLocation extends Component {
 }
 
 WeatherLocation.propTypes = {
-  city: PropTypes.string
+  city: PropTypes.string,
+  onWeatherLocationClick: PropTypes.func
 };
 
 export default WeatherLocation;
